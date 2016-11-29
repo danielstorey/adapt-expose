@@ -1,0 +1,38 @@
+[
+	{
+		"_type": "component",
+		"_component": "expose",
+		"_classes": "",
+		"_layout": "full",
+		"title": "Expose",
+		"displayTitle": "Expose",
+		"body": "",
+		"instruction": "Click each item to remove the front cover and display the content underneath. Clicking again will restore the item to its original state.",
+		"_columns" : 3,
+		"_animationType": "shrink",
+		"_items": [
+			{
+				"front": "How versatile am I?",
+				"back": {
+					"title": "Titles are optional",
+					"body": "You can have text or images as content and can pick from a range of different animations"
+				}
+			},
+			{
+				"front": "?",
+				"back": {
+					"title": "Default Settings",
+					"body": "By default the front cover will display a question mark and will fade out when clicked"
+				}
+			},
+			{
+				"front": "Animations",
+				"back": {
+					"title": "This is the \"shrink\" animation",
+					"body": "You can also choose various slide and flip animations. Click the link below to find out more"
+				}
+			}
+
+		]
+	}
+]

@@ -1,0 +1,125 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "globals": {
+    "ariaRegion": {
+      "type": "string",
+      "required": true,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    }
+  },
+  "properties":{
+    "_supportedLayout": {
+      "type": "string",
+      "required": true,
+      "enum": ["full-width", "half-width", "both"],
+      "default": "both",
+      "editorOnly": true
+    },
+    "instruction": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "This is the instruction text"
+    },
+    "columns": {
+      "type": "string",
+      "required": false,
+      "title": "Width",
+      "default": "",
+      "inputType": "Number",
+      "validators": ["number"],
+      "help": "The number of columns for full-width layouts"
+    },
+    "animationType": {
+      "type": "string",
+      "required": false,
+      "title": "Animation Type",
+      "default": "fade",
+      "inputType": {
+        "type": "Select",
+        "options": ["fade", "flipUp", "flipLeft", "slideUp", "slideDown", "slideLeft", "slideRight"]
+      },
+      "validators": ["number"],
+      "help": "This determines how the front cover animates when clicked on"
+    },
+    "_items": {
+      "type": "array",
+      "required": true,
+      "title": "Items",
+      "items": {
+        "type": "object",
+        "required": true,
+        "properties": {
+          "front": {
+            "type": "string",
+            "required": false,
+            "inputType": "Text",
+            "title": "Front",
+            "default": "?",
+            "validators": [],
+            "help": "The text to display on the front cover",
+            "translatable": true
+          },
+          "back": {
+            "type": "object",
+            "required": true,
+            "properties": {
+              "title": {
+                "type": "string",
+                "required": false,
+                "inputType": "Text",
+                "title": "Item Title",
+                "default": "",
+                "validators": [],
+                "help": "This is the optional item title",
+                "translatable": true
+              },
+              "body": {
+                "type": "string",
+                "required": false,
+                "inputType": "TextArea",
+                "title": "Item Body",
+                "default": "",
+                "validators": [],
+                "help": "This is the optional item body text",
+                "translatable": true
+              },
+              "_graphic": {
+                "type": "object",
+                "required": false,
+                "title": "Graphic",
+                "properties":{
+                  "alt": {
+                    "type": "string",
+                    "required": false,
+                    "default": "",
+                    "inputType": "Text",
+                    "validators": [],
+                    "help": "The alternative text for this image",
+                    "translatable": true
+                  },
+                  "src": {
+                    "type": "string",
+                    "required": false,
+                    "default": "",
+                    "inputType": "Asset:image",
+                    "validators": [],
+                    "help": "Optional image which will be rendered with the item body text"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
