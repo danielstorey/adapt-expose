@@ -1,0 +1,26 @@
+<div class="expose-inner component-inner">
+    {{> component this}}
+    <div class="expose-widget component-widget">
+        <div class="expose-items clearfix">
+            {{#each _items}}
+            <div class="expose-item nth-child-{{@index}}">
+                <div class="expose-item-inner">
+                    <button class="expose-item-button"></button>
+                    <div class="expose-item-cover">
+                        <div class="back"></div>
+                        <div class="front"></div>
+                        <span class="text">{{#if front}} {{{a11y_text front}}} {{else}} ? {{/if}}</span>
+                    </div>
+                    <div class="expose-item-content">
+                        {{#with back}}
+                            {{#if title}}<div class="expose-item-title">{{{a11y_text title}}}</div>{{/if}}
+                            {{#if body}}<div class="expose-item-body">{{{a11y_text body}}}</div>{{/if}}
+                            {{#if _graphic}}<img class="expose-item-img" src="{{_graphic.src}}" alt="{{_graphic.alt}}">{{/if}}
+                        {{/with}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
