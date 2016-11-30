@@ -47,7 +47,6 @@
         "type": "Select",
         "options": ["fade", "flipUp", "flipLeft", "slideUp", "slideDown", "slideLeft", "slideRight"]
       },
-      "validators": ["number"],
       "help": "This determines how the front cover animates when clicked on"
     },
     "_items": {
