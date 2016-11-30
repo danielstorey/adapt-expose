@@ -29,7 +29,7 @@
       "validators": [],
       "help": "This is the instruction text"
     },
-    "columns": {
+    "_columns": {
       "type": "string",
       "required": false,
       "title": "Width",
@@ -38,7 +38,7 @@
       "validators": ["number"],
       "help": "The number of columns for full-width layouts"
     },
-    "animationType": {
+    "_animationType": {
       "type": "string",
       "required": false,
       "title": "Animation Type",
