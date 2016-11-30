@@ -1,7 +1,7 @@
 # adapt-expose
 
 **Expose** is a *presentation component* Created by Dan storey.
-<img src="https://raw.githubusercontent.com/danielstorey/assets/master/expose-demo.png" alt="Expose in action">
+<img src="https://raw.githubusercontent.com/danielstorey/assets/master/reveal-demo.png" alt="Expose in action">
 
 The **Expose** component displays panels of content hidden behind front covers. When clicked the cover animates to expose the content below. A range of different animations are available as listed below. When clicked again the cover is restored.
 
