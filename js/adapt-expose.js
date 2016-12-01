@@ -9,27 +9,25 @@ define(function(require) {
 	var Adapt = require('coreJS/adapt');
 
 	var Expose = ComponentView.extend({
+		events: {
+			"click .expose-item-cover": "toggleItem",
+			"click .expose-item-content": "toggleItem",
+			"click .expose-item-button": "toggleItem"
+		},
 
 		onDeviceResize: function() {
 			this.setupColumns();
+			this.setEqualHeights();
 		},
 
 		preRender: function() {
 			this.animationType = toHyphenCase(this.model.get("_animationType")) || "fade";
 		},
 
-		render: function() {
-			var data = this.model.toJSON();
-			var templateMain = Handlebars.templates["expose"];
-			var $rendered = templateMain(data);
-			this.$el.html($rendered);
-			this.$(".expose-item").children().addClass(this.animationType);
-
-			this.setupColumns();
-			this.postRender();
-		},
-
 		postRender: function() {
+			this.$(".expose-item").children().addClass(this.animationType);
+			this.setupColumns();
+			this.setEqualHeights();
 			this.setReadyStatus();
 			this.setupEventListeners();
 		},
@@ -44,28 +42,39 @@ define(function(require) {
 				this.$(".expose-item").width("auto").removeClass("expose-column");
 			}
 		},
+
+		setEqualHeights: function () {
+			if (this.model.get("_equalHeights") === false) return;
+			var $contentElements = this.$(".expose-item-content");
+			var hMax = 0;
+			_.each($contentElements, function(el) {
+				var h = $(el).outerHeight();
+				if (h > hMax) hMax = h;
+			});
+			$contentElements.height(hMax);
+		},
 		
 		setupEventListeners: function() {
-			var animationType = this.animationType;
-			this.$(".expose-item-button").each(function(i, el) {
-				var $el = $(el);
-				$el.click(function() {
-					$el.next().toggleClass(animationType);
-					this.model.get("_items")[i]._isVisited = true;
-					this.evaluateCompletion();
-				}.bind(this));
-			}.bind(this));
+			this.listenTo(Adapt, {'device:resize': this.onDeviceResize});
+		},
 
-			this.listenTo(Adapt, {
-				'device:resize': this.onDeviceResize
-			});
+		toggleItem: function(e) {
+			if (e.target.tagName === "A") return;
+			var $parent = $(e.currentTarget).parent();
+			var $cover = $parent.children(".expose-item-cover");
+			$cover.toggleClass(this.animationType);
+			if (!$cover.is(".visited")) {
+				$cover.addClass("visited");
+				var i = $cover.parents(".expose-item").index();
+				this.model.get("_items")[i]._isVisited = true;
+				this.evaluateCompletion();
+			}
 		},
 
 		evaluateCompletion: function() {
 			var incompleteItems = _.filter(this.model.get("_items"), function(item) {
 				return !item._isVisited;
 			});
-
 			!incompleteItems.length && this.onComplete();
 		},
 

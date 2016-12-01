@@ -25,6 +25,8 @@ For core model attributes see [**core model attributes**](https://github.com/ada
 
 **_animationType** (string): Possible built-in values are `shrink`, `flipUp`, `flipLeft`, `slideUp`, `slideDown`, `slideLeft`, `slideRight`. You may also assign your own value and use css to create your own animation. Documentation for this coming soon.
 
+**_equalHeights** (boolean): Heights of each item are automatically resized to match the tallest one. Set this value to `false` to override this behaviour.
+
 **_items** (array): Each item represents a panel of content and its cover.
 
 >**front** (string): The text for item's cover (default ?).
