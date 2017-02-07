@@ -16,12 +16,15 @@
 	margin-bottom: 20px;
 	cursor: pointer;
 
-	&.slide-up, &.slide-down, &.slide-left, &.slide-right
-	{
+	&.slide-down,
+	&.slide-left,
+	&.slide-right,
+	&.slide-up {
 		overflow: hidden;
 	}
 
-	&.flip-up, &.flip-left {
+	&.flip-left,
+	&.flip-up {
 		.expose-item-cover {
 			.origin(0 ,0);
 		}
@@ -61,7 +64,8 @@
 			font-size: 24px;
 		}
 
-		.front, .back {
+		.back,
+		.front {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -78,8 +82,6 @@
 		.back {
 			background: darken(@primary-color, 10%);
 		}
-
-
 
 		&:after {
 			content: '';
@@ -101,7 +103,7 @@
 		}
 
 		&.slide-right {
-			right: 100%;
+			left: 100%;
 		}
 
 		&.slide-down {
