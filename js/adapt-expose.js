@@ -46,6 +46,7 @@ define(function(require) {
 		setEqualHeights: function () {
 			if (this.model.get("_equalHeights") === false) return;
 			var $contentElements = this.$(".expose-item-content");
+			$contentElements.height('auto'); 
 			var hMax = 0;
 			_.each($contentElements, function(el) {
 				var h = $(el).outerHeight();
