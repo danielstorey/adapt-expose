@@ -27,9 +27,13 @@ define(function(require) {
 		postRender: function() {
 			this.$(".expose-item").children().addClass(this.animationType);
 			this.setupColumns();
+			this.setupEventListeners();
+			this.$(".expose-item-img").imageready(_.bind(this.onImageReady, this));
+		},
+		
+		onImageReady: function() {
 			this.setEqualHeights();
 			this.setReadyStatus();
-			this.setupEventListeners();
 		},
 
 		setupColumns: function() {
