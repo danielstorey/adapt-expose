@@ -32,7 +32,7 @@
     "_columns": {
       "type": "string",
       "required": false,
-      "title": "Width",
+      "title": "Number of Columns",
       "default": "",
       "inputType": "Number",
       "validators": ["number"],
@@ -42,10 +42,10 @@
       "type": "string",
       "required": false,
       "title": "Animation Type",
-      "default": "fade",
+      "default": "shrink",
       "inputType": {
         "type": "Select",
-        "options": ["fade", "flipUp", "flipLeft", "slideUp", "slideDown", "slideLeft", "slideRight"]
+        "options": ["fade", "shrink", "flipUp", "flipLeft", "slideUp", "slideDown", "slideLeft", "slideRight"]
       },
       "help": "This determines how the front cover animates when clicked on"
     },
